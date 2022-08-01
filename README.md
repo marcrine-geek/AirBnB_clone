@@ -28,3 +28,22 @@ Data models and classes
 Packages, modules and __init__.py
 
 universally unique identifier (uuid)
+
+# Tasks
+## models/base_model.py, models/__init__.py, tests/
+
+chmod +x test_base_model.py; ./test_base_model.py
+
+## Create BaseModel from dictionary
+
+## Commands
+Check code formating
+pycodestyle console.py;
+
+Run unittests using discovery
+python3 -m unittest discover tests
+
+Run unittest in non-interactive mode
+echo "python3 -m unittest discover tests" | bash
+
+python3 -m unittest discover tests; echo "python3 -m unittest discover tests" | bash
