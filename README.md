@@ -42,6 +42,7 @@ chmod +x test_base_model_dict.py; ./test_base_model_dict.py
 Check code formating
 pycodestyle console.py;
 
+### Unittest commands
 Run unittests using discovery
 python3 -m unittest discover tests
 
