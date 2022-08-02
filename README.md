@@ -36,6 +36,8 @@ chmod +x test_base_model.py; ./test_base_model.py
 
 ## Create BaseModel from dictionary
 
+chmod +x test_base_model_dict.py; ./test_base_model_dict.py
+
 ## Commands
 Check code formating
 pycodestyle console.py;

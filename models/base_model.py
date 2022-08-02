@@ -20,9 +20,22 @@ class BaseModel:
 			created_at: Date of object creation
 			updated_at: Date of object change
 		"""
-		self.id = str(uuid4())
-		self.created_at = datetime.now()
-		self.updated_at = datetime.now()
+		if kwargs:
+			# Create from dictionary, Loop dictionary key and values
+			for key, value in kwargs.items():
+				#Set object attributes dynamically using setattr function
+				if(key == "__class__"):
+					continue
+				
+				# Convert isoformat string date to datetime object
+				if key in ("created_at", "updated_at"):
+					value = datetime.fromisoformat(value)
+
+				setattr(self, key, value)	
+		else:
+			# Create new instance
+			self.id = str(uuid4())
+			self.created_at = self.updated_at = datetime.now()
 
 	def save(self):
 		"""Updates the public instance attribute updated_at with
