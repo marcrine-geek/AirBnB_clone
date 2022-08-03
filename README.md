@@ -30,13 +30,18 @@ Packages, modules and __init__.py
 universally unique identifier (uuid)
 
 # Tasks
-## models/base_model.py, models/__init__.py, tests/
+## Task 4: Create BaseModel from dictionary
 
 chmod +x test_base_model.py; ./test_base_model.py
+pycodestyle models/base_model.py
 
-## Create BaseModel from dictionary
+models/base_model.py, models/__init__.py, tests/
+
+## Task 5: Create BaseModel from dictionary
 
 chmod +x test_base_model_dict.py; ./test_base_model_dict.py
+
+
 
 ## Commands
 Check code formating
