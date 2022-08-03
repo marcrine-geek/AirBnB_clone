@@ -22,9 +22,6 @@ class BaseModel:
             updated_at: Date of object change
         """
         # tform = "%Y-%m-%dT%H:%M:%S.%f"
-        self.id = str(uuid4())
-        self.created_at = datetime.today()
-        self.updated_at = datetime.today()
 
         if kwargs:
             # Create from dictionary, Loop dictionary key and values
@@ -39,6 +36,9 @@ class BaseModel:
 
                 setattr(self, key, value)
         else:
+            self.id = str(uuid4())
+            self.created_at = datetime.today()
+            self.updated_at = datetime.today()
             models.storage.new(self)
 
     def save(self):
@@ -52,7 +52,7 @@ class BaseModel:
         """Return a dictionary containing all keys/values of __dict__ of
             the instance
         """
-        dictionary = self.__dict__
+        dictionary = self.__dict__.copy()
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
         dictionary["__class__"] = self.__class__.__name__

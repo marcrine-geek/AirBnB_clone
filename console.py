@@ -3,6 +3,7 @@
 import cmd
 from models import storage
 from models.base_model import BaseModel
+from models.user import User
 import re
 from shlex import split
 
@@ -31,7 +32,8 @@ class HBNBCommand(cmd.Cmd):
 
     prompt = '(hbnb) '
     __classes = {
-        "BaseModel"
+        "BaseModel",
+        "User"
     }
 
     def do_quit(self, arg):
