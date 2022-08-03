@@ -29,19 +29,24 @@ Packages, modules and __init__.py
 
 universally unique identifier (uuid)
 
+chmod +x test_base_model.py; ./test_base_model.py
+
 # Tasks
 ## Task 4: Create BaseModel from dictionary
+chmod +x test_base_model_dict.py; ./test_base_model_dict.py
 
-chmod +x test_base_model.py; ./test_base_model.py
 pycodestyle models/base_model.py
 
 models/base_model.py, models/__init__.py, tests/
 
+
 ## Task 5: Create BaseModel from dictionary
+chmod +x test_save_reload_base_model.py; ./test_save_reload_base_model.py
 
-chmod +x test_base_model_dict.py; ./test_base_model_dict.py
+pycodestyle models/engine/file_storage.py
+pycodestyle models/__init__.py
 
-
+models/engine/file_storage.py, models/engine/__init__.py, models/__init__.py, models/base_model.py, tests/
 
 ## Commands
 Check code formating

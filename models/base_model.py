@@ -6,6 +6,7 @@ This class defines all common attributes/methods for other classes.
 # Imports
 from datetime import datetime
 from uuid import uuid4
+from models import storage
 
 
 class BaseModel:
@@ -36,12 +37,14 @@ class BaseModel:
             # Create new instance
             self.id = str(uuid4())
             self.created_at = self.updated_at = datetime.now()
+            # storage.new(self)
 
     def save(self):
         """Updates the public instance attribute updated_at with
             the current datetime.
         """
         self.updated_at = datetime.now()
+        # storage.save()
 
     def to_dict(self):
         """Return a dictionary containing all keys/values of __dict__ of
@@ -50,7 +53,7 @@ class BaseModel:
         dictionary = self.__dict__
         dictionary["created_at"] = self.created_at.isoformat()
         dictionary["updated_at"] = self.updated_at.isoformat()
-        dictionary["__class__"] = self.__class__
+        dictionary["__class__"] = self.__class__.__name__
         return dictionary
 
     def __str__(self):
