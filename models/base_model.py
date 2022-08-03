@@ -21,6 +21,11 @@ class BaseModel:
             created_at: Date of object creation
             updated_at: Date of object change
         """
+        # tform = "%Y-%m-%dT%H:%M:%S.%f"
+        self.id = str(uuid4())
+        self.created_at = datetime.today()
+        self.updated_at = datetime.today()
+
         if kwargs:
             # Create from dictionary, Loop dictionary key and values
             for key, value in kwargs.items():
@@ -34,9 +39,6 @@ class BaseModel:
 
                 setattr(self, key, value)
         else:
-            # # Create new instance
-            self.id = str(uuid4())
-            self.created_at = self.updated_at = datetime.now()
             models.storage.new(self)
 
     def save(self):
