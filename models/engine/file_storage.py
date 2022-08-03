@@ -4,11 +4,11 @@ deserializes JSON file to instances:
 """
 # imports
 import json
-
+from models.base_model import BaseModel
 
 class FileStorage:
     """Class for file storage"""
-    __file_path = "storage.json"
+    __file_path = "file.json"
     """path to the JSON file"""
 
     __objects = {}
@@ -29,18 +29,19 @@ class FileStorage:
     def save(self):
         """"Serializes __objects to the JSON file (path: __file_path)"""
         # Open file for writing and close automatically
-        temp_dictionary = {}
-        for key in self.__objects:
-            temp_dictionary[key] = self.__objects[key].to_dict()
-
-        with open(self.__file_path, "w", encoding="utf-8") as file:
-            json.dump(temp_dictionary, file)
+        temp_dictionary = self.__objects
+        object_dictionary = {obj: temp_dictionary[obj].to_dict() for obj in temp_dictionary.keys()}
+        with open(self.__file_path, "w") as file:
+            json.dump(object_dictionary, file)
                 
     def reload(self):
         """"Deserializes the JSON file to __objects if file exists"""
         try:
-            with open(self.__file_path, "r", encoding="utf-8") as file:
-                for o in json.load(file).values():
-                    print(o)
+            with open(self.__file_path, "r") as file:
+                obj_dict = json.load(file)
+                for o in obj_dict.values():
+                    class_name = o["__class__"]
+                    del o["__class__"]
+                    self.new(eval(class_name)(**o))
         except FileNotFoundError:
-            pass
+            return
