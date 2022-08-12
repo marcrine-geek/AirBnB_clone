@@ -1,0 +1,40 @@
+.locations{
+    border-right: 1px solid #DDDDDD;
+}
+
+.locations,
+.amenities{
+    display: inline-block;
+    height: 100%;
+    width: 25%;
+}
+
+.locations h3{
+    font-size: 1.17em;
+    font-weight: 600;
+    height: 1%;
+    padding-left: 30px;
+}
+
+.amenities h3{
+    font-size: 1.17em;
+    font-weight: 600;
+    height: 1%;
+    padding-left: 30px;
+}
+
+.locations h4{
+    font-size: 14px;
+    font-weight: 400;
+    height: 1%;
+    padding-left: 30px;
+    padding-bottom: 12px;
+}
+
+.amenities h4{
+    font-size: 14px;
+    font-weight: 400;
+    height: 1%;
+    padding-left: 30px;
+    padding-bottom: 12px;
+}
